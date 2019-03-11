@@ -22,11 +22,12 @@ header{
     align-content: center;
     text-align: center;
 }
-
+/* styeling teams pic and place */
 .team{
     padding: 6px;
     margin: 6px 0px 0px 0px;
 }
+/* main div style which include 9 divs */
 .box{
     position:absolute;
   display         : flex;
@@ -41,7 +42,7 @@ header{
   margin-left:-200px;  /*  this is half of width of your div */
 
 }
-
+/* div style which make 3 divs inside it in column and equal spaces between them */
 .center-div
 {
     display         : flex;
@@ -49,7 +50,7 @@ header{
     justify-content : space-between;
  
 } 
-
+/* class for each squere insaid the second div  */
 .square { 
     display : block;
     width   : 125px;
@@ -62,6 +63,7 @@ header{
     text-align  : center;
     padding     : 20px;
  }
+ /* plyer1 div style */
  .player1{
     width   : 200px;
     height  : 160px;
@@ -76,6 +78,7 @@ header{
     margin-left:-200px;  
   
  }
+  /* plyer2 div style */
  .player2{
     width   : 200px;
     height  : 160px;
@@ -90,21 +93,25 @@ header{
     margin-left:-200px;
     
 } 
+ /* plyer1 score div style */
 .player1.score{
     top:60%;
     height  : 60px;
     text-align: center;
    font-size: 20px;
 }
+ /* plyer2 score div style */
 .player2.score{
     top:60%;
     height  : 60px;
     text-align: center;
     font-size: 20px;
 }
+ /* make divs in one column */
 .clearfix {
     overflow: auto;
   }
+   /* style for new plyer button */
   .buttonNew{
     position: absolute;
     bottom: 20px;
@@ -114,10 +121,11 @@ header{
     border  : 1px solid rgb(228, 228, 228,.5);
     color: white;
   }
+   /* make each squere black when click on it or pass through it */
   .black{
     background-color:rgb(0, 0, 0,.6);
   }
- 
+/* ids for each img of teams  */
 #afc{}
 #ufc{}
 #fcb{}
@@ -126,12 +134,19 @@ header{
 #hfc{}
 #ahfc{}
 #itfc{}
+/* score id */
 #score0{
- 
+    top:63%;
+    height  : 30px;
+    background-color:rgb(0, 0, 0,.0);
 }
+
 #score1{
- 
+    top:63%;
+    height  : 30px;
+    background-color:rgb(0, 0, 0,.0);
 }
+/* ids for each square to call it in js  */
 #square0{}
 #square1{}
 #square2{}
@@ -141,4 +156,10 @@ header{
 #square6{}
 #square7{}
 #square8{}
+/* goal id for sound player */
+#goal{}
 
+
+#no{
+
+}
