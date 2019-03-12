@@ -32,10 +32,6 @@ var sign = true;
 //function for button which reload page 
 $('.buttonNew').on("click", function (event) {
     location.reload();
-    currentScore = 0;
-    currentPlayer = 0;
-    finalScore = [0, 0];
-
 });
 // highlight the mouseover divs
 $('.square').on("mouseover", function (event) {
@@ -50,7 +46,7 @@ $('.square').on("mouseout", function (event) {
 });
 
 //on click boxs to change from x to o
-$('.square').one("click", function (event) {
+$('.square').on("click", function (event) {
     $(this).off("mouseout");
     if (sign == true) {
         $(this).text("X");
@@ -75,47 +71,61 @@ function checkWinner() {
     for (var i = 1; i < 9; i++) {
         if (player1.includes(winCase[i][0]) && player1.includes(winCase[i][1]) && player1.includes(winCase[i][2])) {
             noWon = false;
-            //to stop plyer from clicking another box after wining
-            $('.square').off('click');
             //stop background audio 
             document.getElementById('stop').pause();
             //play success audio
             document.getElementById('goal').play();
-            var swalX = swal("GOAL", "X is the Winner");
-            //stop success audio
-            // if (swalX === true){
-            // // document.getElementById('stop').play();
-            // document.getElementById('goal').pause();}
+            swal({
+                title: "X Win",
+                icon: "img/Goal1.png"
+            });
 
+            //get plyer1 score
+            plyer1Score += 1;
+            document.getElementById('score0').textContent = plyer1Score;
+       
+        } 
 
-        } else if (player2.includes(winCase[i][0]) && player2.includes(winCase[i][1]) && player2.includes(winCase[i][2])) {
+        else if (player2.includes(winCase[i][0]) && player2.includes(winCase[i][1]) && player2.includes(winCase[i][2])) {
             noWon = false;
-            
             //to stop plyer from clicking another box after wining
-            $('.square').off('click');
-              //stop background audio 
-              document.getElementById('stop').pause();
-              //play success audio
-              document.getElementById('goal').play();
-              swal("GOAL", "O is the Winner");
-              //stop success audio
-            //   document.getElementById('goal').pause();
-
+           
+            //stop background audio 
+            document.getElementById('stop').pause();
+            //play success audio
+            document.getElementById('goal').play();
+            swal({
+                title: "O Win",
+                icon: "img/Goal1.png" 
+            });
+            //get plyer2 score
+            plyer2Score += 1;
+            document.getElementById('score1').textContent = plyer2Score;
+           
         }
+
         //if no one wins 
         if (player1.length == 5 || player1.length == 5) {
             if (noWon == true) {
-                   //stop background audio 
-              document.getElementById('stop').pause();
-              document.getElementById('no').play();
-              swal("NOOO", "No one win!!");
-            //   document.getElementById('no').pause();
-
+                //stop background audio 
+                document.getElementById('stop').pause();
+                document.getElementById('no').play();
+                swal({
+                    title: "No one Win",
+                    icon: "img/offside.png"
+                });
                 return;
             }
         }
     }
 }
+function secondHalf(){
+    $(".square").text("");
+    player1 = []
+    player2 = []
+}
+
+
 
 
 
